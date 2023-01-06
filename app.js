@@ -1,8 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const expressHbs = require("express-handlebars");
 
 const app = new express();
-
+app.engine("hbs", expressHbs());
+app.set("view engine", "hbs");
+app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: true }));
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
