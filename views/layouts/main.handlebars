@@ -3,6 +3,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{#if shopcss}}
+      <link rel="stylesheet" href="/styles/shop.css" />
+    {{/if}}
+    {{#if formcss}}
+      <link rel="stylesheet" href="/styles/add-product.css" />
+    {{/if}}
     <title>{{pageTitle}}</title>
   </head>
   <body>
@@ -10,14 +16,10 @@
       <nav>
         <ul>
           <li><a href="/">Shop</a></li>
+          <li><a href="/add-product">Add product</a></li>
         </ul>
       </nav>
     </header>
-    <main>
-      <form action="/add-product" method="post">
-        <input type="text" name="title" id="title" />
-        <button type="submit">Add product</button>
-      </form>
-    </main>
+    {{{body}}}
   </body>
 </html>
