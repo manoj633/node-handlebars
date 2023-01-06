@@ -1,9 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const expressHbs = require("express-handlebars");
+const { engine } = require("express-handlebars");
 
 const app = new express();
-app.engine("hbs", expressHbs());
+
+app.engine("hbs", engine({ defaultLayout: false }));
 app.set("view engine", "hbs");
 app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: true }));
